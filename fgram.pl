@@ -1,9 +1,9 @@
-s(Z):- append(X,Y,Z),np(X),vp(Y).
-np(Z):- append(X,Y,Z),det(X),n(Y).
-vp(Z):-append(X,Y,Z),v(X),np(Y).
-vp(Z):-v(Z).
-det([a]).
-det([the]).
-n([woman]).
-n([man]).
-v([shoots]).
+s(X,Z):- np(X,Y),vp(Y,Z).
+np(X,Z):- det(X,Y),n(Y,Z).
+vp(X,Z):-v(X,Y),np(Y,Z).
+vp(Z,A):-v(Z,A).
+det([a|W],W).
+det([the|W],W).
+n([woman|W],W).
+n([man|W],W).
+v([shoots|W],W).
