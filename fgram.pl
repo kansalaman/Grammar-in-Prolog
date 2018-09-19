@@ -7,8 +7,9 @@
 % n([woman|W],W).
 % n([man|W],W).
 % v([shoots|W],W).
-
-s1 --> np,vp.
+s1 --> simple_s.
+s1 --> simple_s,conj,s1.
+simple_s --> np,vp.
 np --> det,n.
 vp --> v,np.
 vp --> v.
@@ -17,3 +18,6 @@ det --> [a].
 n --> [woman].
 n --> [man].
 v --> [shoots].
+conj --> [or].
+conj --> [and].
+conj --> [but].
